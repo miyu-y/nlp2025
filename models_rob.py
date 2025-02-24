@@ -145,10 +145,11 @@ class TripletModel(nn.Module):
             anchor_output, positive_output, negative_output, positive_logits, negative_logits
         )
         loss = classification_loss + triplet_loss
-
+        
         outputs = torch.stack(
             [positive_output[i] if labels[i] == 0 else negative_output[i] for i in range(len(labels))]
         )
+
 
         return ModelOutput(logits=[positive_logits, negative_logits], loss=loss, output=[anchor_output, outputs])
 
