@@ -146,6 +146,8 @@ class TripletModel(nn.Module):
         )
         loss = classification_loss + triplet_loss
         
+        if labels is None:
+            labels = torch.zeros(len(positive_output), dtype=torch.long, device=positive_output.device)
         outputs = torch.stack(
             [positive_output[i] if labels[i] == 0 else negative_output[i] for i in range(len(labels))]
         )
