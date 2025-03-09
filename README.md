@@ -1,5 +1,7 @@
 # nlp2025
 
+![](model_3.pdf)
+
 ## raw_rag_truth_dataset/
 実験のために用いた[RAGTruthデータセット](https://github.com/ParticleMedia/RAGTruth) (Wu+, 2023) の生データが含まれている。
 `source_info.jsonl`に入力文章が、`response.jsonl`に出力文章が記述されている。
@@ -104,6 +106,7 @@ jsonファイルの中身は以下の通りである。
 | task | String | 生成タスクの種類、`"QA"`、`"Data2txt"`、`"Summary"`のいずれかである。
 | {no_rag, rag, triplet}_logits | List\[Int\] | それぞれ`NoDocModel`、`WithDocModel`、`TripletModel`で推論した際のlogitsである。0要素目が`positive_logits` (hallucinationを含まない)、1要素目が`negative_logits` (hallucinationを含む)。
 | {no_rag, rag, triplet}_label | Int | それぞれ`NoDocModel`、`WithDocModel`、`TripletModel`で推論した際の判別結果である。 | 
+
 `id_abc`という配列に各モデルの推論結果の比較に基づいて事例のIDを分類して格納するコードが含まれている。(`a`、`b`、`c`には0もしくは1が入る)
 手法1での結果が`a`で手法2での結果が`b`であり、正解ラベルが`c`である事例のIDが`id_abc`に格納される。
 ### check_improve_rob.py
