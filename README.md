@@ -1,6 +1,6 @@
 # nlp2025
 
-![](model.png)
+<img src="model.png" width="50%">
 
 ## raw_rag_truth_dataset/
 実験のために用いた[RAGTruthデータセット](https://github.com/ParticleMedia/RAGTruth) (Wu+, 2023) の生データが含まれている。
